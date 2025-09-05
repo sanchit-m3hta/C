@@ -1,0 +1,28 @@
+# Ignore object files
+*.o
+*.obj
+
+# Ignore executables
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Ignore default build outputs
+a.out
+
+# Ignore debug / release build folders
+/debug/
+/release/
+/build/
+/bin/
+/lib/
+
+# Ignore logs and temp files
+*.log
+*.tmp
+*.swp
+
+*.DS_Store
