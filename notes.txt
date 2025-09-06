@@ -2,3 +2,183 @@ Notes for the C programming language
 Book used: "C programming a modern approach" by King, K.N
 Started: Sep 5, 2025
 
+----------------------1. Introducing C------------------------
+
+Developed in early 1970s at Bell labs. C is a by product of the
+UNIX OS (Operating System), which was also developed at Bell labs.
+Unix is written in Assembly. A high level programming language was 
+needed for further development of Unix, and so the "B" programming
+language was born. B was based on BCPL, and BCPL was based on Algol60.
+
+ANSI (American National Standards Institute)
+C89 is often referred to as ANSI C
+
+C based language:
+C++
+Java is based on C++
+C# is language derived from C++ and Java
+Perl has adopted many features of C
+
+---------------------------2. C Fundamentals-----------------------
+
+Getting a C program to run requires the following steps:
+
+1. Preprocesing: commands that begin with '#' are known as directives.
+The preprocessor obeys these directives, and can add things to the
+program and make modifications.
+2. Compiling: the modified program goes to a compiler, which translates
+it into machine instructions (object code).
+3. Linking: a linker combines object code produced by the compiler with
+any additional code needed to yield a complete executable program. This
+additional code includes library functions (like printf()) that are used
+in the program.
+
+Command to compile programs:
+
+gcc -o pun pun.c
+
+gcc: is the compiler
+-o: one of the options offered by cc, allows to chose the name of 
+the file containing the executable program. 
+pun: name of the file containing the exectuable program
+pun.c: the file containing the source code
+
+the source code for pun.c is given below:
+
+#include <stdio.h>
+
+int main(void){
+
+    printf("To C, or not to c: that is the question.\n");
+
+    return 0;
+}
+
+General form of a simple program
+
+directives
+int main(void){
+    statements
+}
+
+------Directives------
+Before a C program is compile, it is first edited by a preprocessor.
+Commands intended for the processor are called directives.
+Directives do not end with a semicolon
+
+example: #inlcude <stdio.hț
+contains information about C's standard I/O library
+
+------Functions------
+Functions are like "procedures" or "subroutines" in other programming
+languages-they are the building blocks from which programs are 
+constucted.
+
+The statement "return 0;" has two effect:
+1) causes the main function to terminate (ending the program)
+2) indicates that the main function returns a value of 0.
+
+------statements------
+a statement is a command to be executed when the program runs.
+a statement must end with a semicolon (except compound statements).
+a semicolon shows he compiler where the statement ends.
+
+------function call------
+asking a function to perform its assigned task is know as calling the
+function.
+
+------string literal------
+a series of characters enclosed in double quotation marks
+
+------comments------
+// this is a single line comment
+/*this
+is a 
+multi-line
+commnt
+*/
+
+most common style of commenting:
+/*
+* Name:
+* Age:
+* Date:
+*/
+
+------------Variables------------
+A variable is basically a named storage location in memory that can
+hold a value. You can store, change, and retrieve values from 
+it while your program runs.
+
+------Types------
+Every variable must have a type, which specifies what kind of data it
+will hold. Below are a few types:
+int (integer), range: 32 bits. Holds Integers
+float(floating-point), range: 32 bits. Holds Integers and decimal values.
+
+------Declaration------
+variables must be declared-described for the benefit of the compiler-
+before they can be used. To declare a variable, the type of the variable,
+then the its name. 
+
+Examples:
+int age;
+float profit;
+int age, number, length;
+float profit, weight, width;
+
+------assignments------
+a variable can be given a value by means of assignment.
+
+Example:
+assigning values to int variables 
+height = 8;
+length = 12;
+width = 11;
+the numbers 8, 12, 10.5 are constants.
+
+Example:
+assigning decimal values to float variables 
+weight = 10.5f;
+length = 125.901f;
+the letter "f" (for "float") is appended to a constant that conatins
+a decimal point.
+
+
+------------printing the value of a variable------------
+printf() can be used to display the current value of a variable.
+certain placeholders are used to print values of different types.
+
+Type    :   placeholder
+int     :   %d
+float   :   %f
+Example:
+int height = 10;
+printf("Height: %d\n", height);
+
+float weight = 72.50f;
+printf("weight: %f", weight);
+output: 72.500000 i.e 6 decimal digits
+
+to control the number of digits after decimal point for float values,
+put .p between '%' and 'f', where p is the number of decimal digits.
+Example:
+float weight = 72.50f;
+printf("weight: %.2f", weight);
+output: weight: 72.50
+
+Example:
+printing multiple variables
+printf("age: %d\n height: %.2f\n", age, height);
+output:
+age: 22
+height: 72.50
+
+
+
+
+
+
+
+
+
