@@ -1,0 +1,4 @@
+Notes for the C programming language
+Book used: "C programming a modern approach" by King, K.N
+Started: Sep 5, 2025
+
