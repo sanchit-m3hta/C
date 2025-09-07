@@ -1,0 +1,7 @@
+ch2 exercices
+1. return 0
+2.a) #include <stdio.o> aka C's standard I/O library
+  b)Parkinson's Law:
+  Work expands as to fill the time
+  available for its completion.
+

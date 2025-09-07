@@ -2,7 +2,13 @@ Notes for the C programming language
 Book used: "C programming a modern approach" by King, K.N
 Started: Sep 5, 2025
 
-----------------------1. Introducing C------------------------
+/**********************************************
+* Compilation:                                *
+* gcc -o Wall -W -pedantic -asni -std=c99 -o  *
+**********************************************/                                             
+  
+
+----------------------------------------------1. Introducing C------------------------------------------------
 
 Developed in early 1970s at Bell labs. C is a by product of the
 UNIX OS (Operating System), which was also developed at Bell labs.
@@ -19,7 +25,7 @@ Java is based on C++
 C# is language derived from C++ and Java
 Perl has adopted many features of C
 
----------------------------2. C Fundamentals-----------------------
+---------------------------------------------------2. C Fundamentals-----------------------------------------------
 
 Getting a C program to run requires the following steps:
 
@@ -145,9 +151,10 @@ the letter "f" (for "float") is appended to a constant that conatins
 a decimal point.
 
 
-------------printing the value of a variable------------
+------------Printing the value of a variable------------
 printf() can be used to display the current value of a variable.
 certain placeholders are used to print values of different types.
+The "f" in printf() stands for formatted.
 
 Type    :   placeholder
 int     :   %d
@@ -174,7 +181,68 @@ output:
 age: 22
 height: 72.50
 
+------------Reading input to a variable------------
+scanf() can be used to obtain input from the user.
+The "f" in scanf() stands for formatted, just like printf().
 
+scanf("%d", &i);    //reads an integer value, stores into i
+scanf("%f", &x);    //reads a float value, stores in x
+
+------------Macro Definition------------
+example: 
+#define MAGIC_NUMBER 255
+
+#define is a preprocessing directive, just like #include,
+so no need for ";". The convention is to use upper-case
+letters in macro names.
+
+The value of a macro can also be an expression. 
+Example:
+#define RECIPROCAL_OF_PI (1.0f/3.14f)
+To print a macro, use the appropriate placeholders.
+Example:
+printf("reciprocal of pie is: %f\n", RECIPROCAL_OF_PI);
+
+------------Identifiers------------
+Identifiers are names for variables, functions, macros,
+and other entities. An identifier:
+-may contain letters, digits, underscores
+-MUST begin with a letter or underscore.
+
+examples of legal identifiers:
+times10     get_next_char   _done
+
+examples of illegal identifiers:
+10times     get-next-char
+
+The convention is to use lowercase snake-case identifiers.
+Examples:
+full_name   last_name   new_age     new_height
+
+There is NO limit on the maximum lenght of an identifier.
+
+There are certain keywords which must NOT be used
+as identifiers. They can be easily googled.
+
+------------Layout of a C program------------
+a C program can be seen as a series of tokens: a group of
+characters that can't be split up without changing their meaning.
+
+It is possible to put the entire main function on a single line,
+if a page wide enough was available. However it is NOT possible to 
+put the WHOLE building on line as each PREPROCESSING directive 
+requires a separate line.
+
+It is possible to insert any amount of space-blanks, tabs, new line
+characters-between tokens. This has some important consequences:
+- Statements can be divided over any number of lines
+- Space between toekns makes it easier for the eye to separate them.
+- Identation can make nesting easier to spot
+- Blank lines can divide a program into logical units, making it easier
+for the reader to understand the program's structure.
+
+Compilation command to find the most errors:
+gcc -o Wall -W -pedantic -asni -std=c99 -o pun.o pun.c
 
 
 
