@@ -2,10 +2,10 @@ Notes for the C programming language
 Book used: "C programming a modern approach" by King, K.N
 Started: Sep 5, 2025
 
-/**********************************************
-* Compilation:                                *
-* gcc -o Wall -W -pedantic -asni -std=c99 -o  *
-**********************************************/                                             
+/****************************************************************
+* Usual Compilation of a C program:                             *
+* gcc -O -Wall -W -pedantic -std=c99 <file.c> -o <file.o>       *
+****************************************************************/                                             
   
 
 ----------------------------------------------1. Introducing C------------------------------------------------
@@ -20,10 +20,10 @@ ANSI (American National Standards Institute)
 C89 is often referred to as ANSI C
 
 C based language:
-C++
-Java is based on C++
-C# is language derived from C++ and Java
-Perl has adopted many features of C
+    C++
+    Java is based on C++
+    C# is language derived from C++ and Java
+    Perl has adopted many features of C
 
 ---------------------------------------------------2. C Fundamentals-----------------------------------------------
 
@@ -41,12 +41,12 @@ in the program.
 
 Command to compile programs:
 
-gcc -o pun pun.c
+gcc -o pun.o pun.c
 
 gcc: is the compiler
 -o: one of the options offered by cc, allows to chose the name of 
 the file containing the executable program. 
-pun: name of the file containing the exectuable program
+pun.o: name of the file containing the exectuable program
 pun.c: the file containing the source code
 
 the source code for pun.c is given below:
@@ -68,9 +68,9 @@ int main(void){
 }
 
 ------Directives------
-Before a C program is compile, it is first edited by a preprocessor.
-Commands intended for the processor are called directives.
-Directives do not end with a semicolon
+Before a C program can be compiled, it is first edited by a preprocessor.
+Commands intended for the preprocessor are called directives.
+Directives do not end with a semicolon.
 
 example: #inlcude <stdio.hț
 contains information about C's standard I/O library
@@ -242,11 +242,54 @@ characters-between tokens. This has some important consequences:
 for the reader to understand the program's structure.
 
 Compilation command to find the most errors:
-gcc -o Wall -W -pedantic -asni -std=c99 -o pun.o pun.c
+gcc -o Wall -W -pedantic -std=c99 -o pun.o pun.c
 
+----------------------------------------------3. Formatted Input/Output------------------------------------------------
 
+---------------printf() function---------------
+common usage: 
+printf("%d", var);
 
+Formatted usage:
+printf("%m.pX", var);    OR      printf("%-m.pX", var);
+- where m and p are integer constands (both are optional).
+- X = conversion specifier. It is a lowercase letter.
+- var is a variable, expression.
 
+--m--
+m is the minimum field width. It specifies the minimum number of
+characters to print.
 
+---conversion specifier---
+    d - Displays an integer in decimal (base 10) form.
+        - if m is greater than the numbers to print, extra spaces
+        are added to the left side of the number. 
+        - if p is greater than the numbers to print, extra zeroes
+        are to the left side of the number.
+        "%-md" does the same, but to the right side of the number.
+    
+    e - Displays a float in exponential form (scientific notation).
+        - p indicates how many digits should appear after the decimal
+        point (the default is 6). If p is 0, the decimal piont is not 
+        displayed. 
+        - if p is 0, the decimal point is not displayed.
+    
+    f - Displays a float in "fixed decimal" format i.e. without an exponent.
+        - p has the same meaning as for "e".
 
+    g - Displays a floating in either exponential form or fixed decimal form,
+        depending on the number's size. 
+        - p indicates the maximum number of significant digits (not digits
+        after the decimal point) to be displayed.
+        - g is usefull for displaying numbers who size can't be predicted 
+        when the program is written or that tend to vary in size.
 
+--------Escape Sequences--------
+Alert(bell)     \a
+Backspace       \b
+New line        \n
+Horizontal tab  \t
+quotation marks \"      example: printf("/"HI"); output -> "HI
+Backslash       \\      example: printf("\\"); output -> \
+
+---------------scanf() function---------------
