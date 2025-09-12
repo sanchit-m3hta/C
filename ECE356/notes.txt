@@ -1,0 +1,26 @@
+OS structures
+
+Monolithic structure - Traditional Uninx, Linux
+everythig in one place
+disadvantage of having everything in one block/system/etc:
+- harder to read/comprehend
+- debugging is difficult
+- recompilation change
+
+advantage of having everything in one block/system/etc:
+- fast
+- performant
+
+Layered Approach - Android
+divided into a numer of layers(levels)
+disadvantage:
+- slow performance
+- difficulty in defining the functionality of each layers
+advantages:
+modularized code 
+simpler debugging
+isolation btween layers
+
+Microkernels - Mach influenced Mac OS X's Darwin Kernel
+minimal kernel Code: Moves as much from the kernel into user space
+
