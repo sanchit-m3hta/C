@@ -24,3 +24,13 @@ isolation btween layers
 Microkernels - Mach influenced Mac OS X's Darwin Kernel
 minimal kernel Code: Moves as much from the kernel into user space
 
+Loadable Kernel Modules - Modern UNIX, Linux, Solaris, Windows
+
+kernel Modules 
+
+android is hyrbird architecture becuase:
+- portability
+- security
+- performance
+
+
