@@ -1,0 +1,22 @@
+co-op/Job prospects
+- Embedded Systems
+- Digital Logic Design
+- Firmware
+- Automation
+
+Skills:
+- C/C++
+- Python
+- Learning Linux (currently)
+
+Positoin: AMD Design EMG Verification Engineering Intern
+Reqs:
+
+Position: AMD Hardware Design Verification Engineering
+Reqs:
+
+Skills to focus on:
+
+Recommended Project:
+
+
