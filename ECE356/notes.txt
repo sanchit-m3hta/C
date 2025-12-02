@@ -164,29 +164,168 @@ What is forking?
 [search on google]
 
 what is COW?
+Copy-on-write
 [search on google]
+
+
 
 PR = Priority, NI = Nice Values
 Priority can be fixed, dynamic, and [something something] by Nice Values (NI)
 PR = 20 (default)
 User-> Nice - NI 
 PR = 20 + NI
+[ Defaut] Nice value = 0
 
 -100 is the highest Priority
 129 is the lowest priority
 
 
+ps -e 
+ps -ef 
+
+fork-exec creates a new prcocess (im not sure if this 100% correct).
+fork()
+exec()
+
+pid: prcoess id 
+ppid: parent process id
+uid: user id
+euid: effective user id
+
+//daemons
+What is a deamon?
+A daemon is a background process that runs without direct user interaction.
+controlling term
+    - foreground: UID is User
+    - background: UID is root, and TTY is tty1 (maybe tty2 as well)
+    - daemons: UID is root, TTY is "?"
+
+ctrl + c: interrupt
+ctrl + z: suspend //moves the process in the backgrond, where it can be resume via "bg"
+
+command: bg //background
+       : fg //foreground
+
+
+zombie child
+orphan child
+zombie process
+
+return value of the fork, 
+if reutrn value is 0, its the child
+if you get value of the child,then its parent.
+
+
+--------------------------------------------------IPC (INTER PROCESS COMMUNICATION)-----------------------------------------
+ls | wc -l: lists the number of paths in the pwd 
+
+DIFFERENT WAYS PROCESSES CAN COMMUNICATE:
+- signals
+- message passing: safe
+- shared memory: fast
+
+commands to create a mechanism that allows the above ways for processe to communicate:
+shmct
+shmatc
+shmdt
+shmctl
+
+covered up to pipes, page 35. midterm 1: from introduction up to pipes page 35 - IPC
+
+
+two types of IPC
+- direct: name = process ID, SYNCHRONIZATION, fast, straightforward. 
+        - signals
+        - message passing
+        - unnamed pipe: within the same heirarchy, no ID associated with them, half duplex
+          remains persistant even after the process has died.
+- indirect:
+    - named pipes =  FIFO pipe, "makefifo()", full duplex, bleong to the file system
+    - message qeues = publishers give message to queue in fifo bassis, diagnostic tool (another process) that reads the messages, data is persistant
+    - shared memory (maybe?) 
+    - mailboxes
+    - sockets = n endpoint for a communication channel, used for both physical and digital connections.
+
+------pipe()------
+fd[0] = reading
+fd[1] = writing
+
+syntax:
+write(fd,buf, count)
+read(fd, buf, count)
+
+if either read or write fails, -1 is returned. 
+
+- differentiate betwen a FIFO file and a normal file.
+- differentiate between named pipes and unnamed pipes.
+
+
+named pipes are half duplexs
+unamed pipes are not data persistant. but they are persistant in the sense that the pipes remain after the process has terminated.
+
+fifo pipes = p (when invoking ls -l)
+
+Owner/User
+GRoup
+Others
+0644
+
+----FIFO PIPE-----
+command to create fifopipe = makefifo()
+directives to include while using makefifo()
+#include</sys/types.h>
+#include<sys/unistd.h>
+#inlcude<unistd.h>
+#include<fcntl.h>
+
+----------------------3. Thread Introduction-----------------------
+Cache: Cache is very small and very fast peice of memory sitting between the cpu and the main memory. 
+    - It exits because RAM is very slow compared to the cpu
+
+Cache HIT and MISS:
+    - When the CPU needs information, it first checks the cache.
+    - if its not there, Cache MISS, and the CPU must fetch from RAM i.e which is slower -> slower performance
+    - if its there, Cache HIT -> faster performance
+
+COLD and WARM Cache:
+    - When the cache is filled with data unrelated to the current running process: COLD cache. -> more cache MISSES
+    - when the cache is contains useful datat related to the current running processs: WARM cache -> more cache HITS
+
+thread GRoup
+threads that belong to the same process
+
+---Thread Safe---
+Mutexes
+semaphores
+conditional variables
+
+--------concurrency Vs ||ism-------
+Read up on this::
+
+---creating threads----
+ pthread p1;    //data type of threads
+
+ pthread_create()       //create threads
+ 
 
 
 
 
+-------------Deadlock-----------------
+the deadlocks get resolved by the process (program), NOT the operating system.
 
+ - Deadlock ignorance
+ deadlocks do not get recognized by the OS
 
+- A TESLA hit a police car because of the deadlock.
+- self driving cars are the most dangerours places where a deadlock can by deadly
+- each sensor is a thread in a TESLA
 
-
-
-    
-
+necesary conditions for a deadlock:
+- mutual exclusion
+- hold & wait
+- no preemption
+- circular wait
 
 
 

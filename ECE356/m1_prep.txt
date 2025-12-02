@@ -1,0 +1,78 @@
+Midterm 1 preparation
+
+commands are enclosed in []: example: [ls], [strace]
+
+Q. What is an OS?
+A. An OS is a software that acts as interface between computer Hardware components
+and the user
+
+Q. What are some functions of an OS?
+A. Memory Management, Processor Management, File Management, Device Management, I/O Management,
+Secondary storage Management, security, command interpretation, networking, communication management,
+job accounting
+
+Q. What is the kernel?
+A. The one program running at all times on the computer.
+  The kernel is at the nucleus of a computer.
+  It is reponsible for managing the commuincation between software and hardware.
+  the Kernel is the innermost part of an OS, while the shell is the outermost one.
+
+Q. what is a Shell?
+A. Shell is a program that serves as the interface between the user and the OS.
+   the shell translates commands you type into a format which the computer can understand.
+   it is essentially a command line interpreter or a graphical user interface (gui)
+    eg: bourne shell (sh), c shell (csh), bourne again shell (bash), korn sell(ksh)
+
+Q. WHat are the two parts of memory?
+A. 1. user space: applications execute here 
+    2. protected kernel space: device, task, process management etc
+
+Evolution of OS:
+Windows NT kernel -> windows 200 -> windows xp - windows 10
+UNIX kernel -> BSD Kernel -> XNU Kernel -> DarwinOS -> OS X/ MAC OS
+            -> Linux Kernel -> Debian OS -> Ubuntu OS
+
+Q. What is a system call?
+A. System calls are programming interfaces to the services provided by the OS   
+   a system call is a request made by a program to the OS's kernel to perform a task
+   typically written as a function in c or c++
+Example: copying contents of one file to another:
+        - open 
+        - create 
+        - Read
+        - write 
+        - close
+
+Q.What is a context switch?
+A. A context switch the process of saving the state of one process (or thread) and
+restoring the state of another. so the CPU can swtich between them. 
+
+Q. Why does programming using system calls not the best practice?
+A. a system call is a direct request from a program to the OS's kernel. A program must 
+use a special instruction that causes a context switch from the less-privileged user Mode 
+to the more-privileged kernel mode. This is a low-level, machine-specific process that
+requires careful handling of registers and memory. if this process had to be handled
+manually, it would be extremely difficult to program software. THis is why APIs exist.
+
+Q. What is an API?
+A. API stands for Application Programming Interface. The API specifies a set of functions
+that are available to an application programmer, inlcuding parameters that are passed to 
+each function and the return values the programmer can expect.
+Example: Win32 API for Windows
+          POSIX API for POSIX-based systems
+          Java API for the Java Virtual Machine (JVM)
+A programmer access an API via a library of code provided by the OS. For UNIX and Linux,
+for programs written in C, the library is called "libc"
+
+APIs have system calls under the hood, 
+example: the fopen() API call has:
+- open()
+- fstat()
+- Iseek()
+- read()
+
+[strace]: is a diagnostic, debugging, and instructional command-line utility for Linux
+that traces system calls.
+
+Q. Why API over System Call?
+A. portability, EAse of use, RTE (Run time environment)
